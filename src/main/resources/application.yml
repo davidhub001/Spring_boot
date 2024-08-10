@@ -1,0 +1,31 @@
+---
+spring:
+  datasource:
+    # Update the database connection URL to match your MySQL setup
+    url: jdbc:mysql://localhost:3306/David_spring?useSSL=false&serverTimezone=UTC
+    username: root
+    password: 
+  # JPA properties
+  jpa:
+    properties:
+      hibernate:
+        # Set the Hibernate dialect for MySQL
+        dialect: org.hibernate.dialect.MySQL8Dialect 
+        # MySQL does not have a "default schema" like PostgreSQL, so this can be removed
+        # "[default_schema]": public
+        "[format_sql]": true
+        "[show_sql]": true
+        jdbc:
+          lob:
+            "[non_contextual_creation]": true
+
+# Logger configuration
+logging:
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+  level:
+    '[org.springframework]': info
+    '[org.hibernate]': debug
+# Server configuration
+server:
+  port: 8080
