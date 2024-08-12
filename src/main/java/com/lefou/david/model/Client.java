@@ -23,10 +23,14 @@ public class Client {
 
     @Column(nullable = false, unique = true)
     private String email;
-
+    @Column(name = "phone")
     private String phone;
+    @Column(name = "address")
 
     private String address;
+    @Column(name = "test")
+
+    private String test;
 
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
